@@ -1,0 +1,37 @@
+import { Heart, ListMusic, UserPlus } from "lucide-react";
+import React from "react";
+
+const User = () => {
+  return (
+    <div className="flex items-center gap-4 justify-center w-full">
+      <img
+        src="https://img.freepik.com/premium-photo/man-wearing-glasses-is-smiling-holding-tablet_905510-2118.jpg?w=740"
+        alt="alex"
+        className="rounded-full w-[26%] cursor-pointer m-10"
+      />
+      <div className="gap-6 flex flex-col">
+        <h1 className="font-bold text-5xl dark:text-slate-200 cursor-text">
+          Hey, <span className="text-pink-800 dark:text-rose-800">Alex</span>!
+        </h1>
+        <p className="text-slate-600 dark:text-slate-400 text-sm w-[80%] cursor-text">
+          Music enthusiast, rhythm seeker, and melody curator. Join me on a
+          journey through the beats and tunes that make life sing.
+        </p>
+        <p className="flex items-center gap-4 font-semibold text-xl text-slate-800 dark:text-slate-200">
+          <span className="flex items-center gap-4 px-4 py-2 bg-slate-500/10 rounded-full cursor-pointer">
+            My playlist <ListMusic className="text-slate-800 dark:text-slate-200" />
+          </span>
+          <span className="flex items-center gap-4 px-4 py-2 bg-slate-500/10 rounded-full cursor-pointer">
+            Liked songs <Heart className="text-pink-500 dark:text-rose-600" />
+          </span>
+        </p>
+        <p className="flex items-center font-semibold text-xl text-slate-800 ltr cursor-pointer">
+            <span className="flex items-center gap-4 px-4 py-2 bg-pink-500 dark:bg-rose-600 text-slate-100 dark:text-slate-200 rounded-s-full">Followers <UserPlus /></span>
+            <span className="bg-slate-500/10 text-slate-800 dark:text-slate-200 px-4 py-2 rounded-e-full">100k+</span>
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default User;

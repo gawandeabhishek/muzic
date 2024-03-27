@@ -1,0 +1,12 @@
+import React from 'react'
+
+const date = new Date();
+const Footer = () => {
+  return (
+    <footer className='flex items-center justify-center cursor-text'>
+      <p className='mx-10 my-5 text-slate-950 dark:text-slate-50'>Copyright &copy; {date.getFullYear()} Muzic. All rights reserved. Made by @abhishek.</p>
+    </footer>
+  )
+}
+
+export default Footer

@@ -1,22 +1,50 @@
-import { Play, Repeat1, SkipBack, SkipForward } from "lucide-react";
-import React from "react";
+import {
+  Pause,
+  Play,
+  Repeat1,
+  SkipBack,
+  SkipForward,
+} from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 const Show = () => {
+  const [song, setSong] = useState([]);
+  const [play, setPlay] = useState(true);
+  let { id } = useParams();
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      const res = await fetch(`http://127.0.0.1:5100/song/?query=${id}`);
+      const result = await res.json();
+      setSong(result[0]);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const togglePlay = () => {
+    setPlay(!play);
+  }
+
   return (
-    <>
-      <div className="flex items-center justify-around gap-4 m-16">
+    <div className="min-h-[calc(100vh-12rem)]">
+      <div className="flex items-center justify-center gap-20 m-16">
         <img
-          src="https://c.saavncdn.com/987/BIBA-English-2019-20190201201359-500x500.jpg"
-          alt="BIBA"
-          className="rounded-md w-[25%] m-auto cursor-pointer"
+          src={song.image}
+          alt={song.album}
+          className="rounded-md w-[25%] cursor-pointer"
         />
         <div className="flex flex-col items-start justify-center gap-4 w-fit">
           <h4 className="font-bold text-5xl text-slate-900 dark:text-slate-50 w-fit mx-2 cursor-pointer">
-            BIBA
+            {song.album}
           </h4>
           <p className="text-slate-600 dark:text-slate-400 text-lg w-[50%] mx-2 cursor-pointer">
-            Marshmello, Pritam Chakraborty, Shirley Setia, Pardeep Singh Sran,
-            Dev Negi
+            {song.singers}
           </p>
         </div>
       </div>
@@ -31,8 +59,8 @@ const Show = () => {
           <div className="bg-slate-500/10 p-2 rounded-full text-slate-800 dark:text-slate-200 cursor-pointer">
             <SkipBack />
           </div>
-          <div className="bg-slate-500/10 p-2 rounded-full text-slate-800 dark:text-slate-200 cursor-pointer">
-            <Play />
+          <div onClick={togglePlay} className="bg-slate-500/10 p-2 rounded-full text-slate-800 dark:text-slate-200 cursor-pointer">
+            {play ? <Pause className="text-rose-500" /> : <Play />}
           </div>
           <div className="bg-slate-500/10 p-2 rounded-full text-slate-800 dark:text-slate-200 cursor-pointer">
             <SkipForward />
@@ -42,7 +70,7 @@ const Show = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

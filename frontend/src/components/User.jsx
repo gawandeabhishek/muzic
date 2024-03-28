@@ -3,7 +3,7 @@ import React from "react";
 
 const User = () => {
   return (
-    <div className="flex items-center gap-4 justify-center w-full">
+    <div className="flex min-h-[calc(100vh-10rem)] items-center gap-4 justify-center w-full">
       <img
         src="https://img.freepik.com/premium-photo/man-wearing-glasses-is-smiling-holding-tablet_905510-2118.jpg?w=740"
         alt="alex"

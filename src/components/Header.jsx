@@ -26,7 +26,7 @@ const Header = () => {
         <Link to={"/"}><Home
           className="text-slate-800 dark:text-slate-300 cursor-pointer"
         /></Link>
-        <Link to={`/show/${query}`} onClick={() => location.reload()}><Search className="cursor-pointer text-slate-800 dark:text-slate-300" /></Link>
+        <Link to={`/show/${query}`}><Search className="cursor-pointer text-slate-800 dark:text-slate-300" /></Link>
         <input
           type="text"
           className="rounded-full outline-none px-4 py-2 w-[100%] placeholder:text-slate-600 dark:placeholder:text-slate-400 text-slate-800 dark:text-slate-300 bg-white dark:bg-black drop-shadow-2xl"

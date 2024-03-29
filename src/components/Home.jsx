@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const Home = () => {
+const Home = ({ setPlay }) => {
   const [tracks, setTracks] = useState([]);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const Home = () => {
   return (
     <div className="mx-10 mb-10 min-h-[calc(100vh-10rem)] p-2 flex flex-wrap gap-4 items-center justify-around">
       {tracks.map((data, idx) => (
-        <Link to={`/show/${data.album}`} key={idx}>
+        <Link to={`/show/${data.album}`} onClick={() =>  setPlay(true) } key={idx}>
           <div className="w-48 h-[20rem] m-2 rounded-md bg-white dark:bg-slate-900/20 gap-2 flex flex-col items-center cursor-pointer hover:p-2 transition-all">
             <img
               src={data.image}

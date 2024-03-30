@@ -13,6 +13,7 @@ const Home = ({ setPlay }) => {
       const res = await fetch(
         `${import.meta.env.VITE_WEB_URL}/playlist/?query=https://www.jiosaavn.com/featured/romantic-hits-2020---hindi/ABiMGqjovSFuOxiEGmm6lQ__`
       );
+      console.log(res);
       const result = await res.json();
       setTracks(result.songs);
     } catch (error) {
